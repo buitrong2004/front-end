@@ -136,7 +136,8 @@ const seatTypeUpdate = async(seatTypeData:ISeatType,id:number|string)=>{
       <Route path="/admin/create_type_seat" element={<CreateSeatType addSeatType={seatTypeAdd}></CreateSeatType>}></Route>
       <Route path="/admin/seat_type/edit/:id" element={<UpdateSeatType updateSeatType={seatTypeUpdate}></UpdateSeatType>}></Route>
      </Routes>
-
+      {/* dffdgfgfgfh */}
+      {/* sdgsdg */}
     </>
    
   ) 
