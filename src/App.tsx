@@ -169,8 +169,7 @@ const updateMoviesCategory = async(id:number|string,categoryMovie:ICategoryMovie
       <Route path="/admin/createmovie" element={<AddMovieCategory addCreateMovie={addCategoryMovie}></AddMovieCategory>}></Route>
       <Route path="/admin/createmovie/edit/:id" element={<UpdateCategoryMovie updateCategoryMovies={updateMoviesCategory}></UpdateCategoryMovie>}></Route>
      </Routes>
-      {/* dffdgfgfgfh */}
-      {/* sdgsdg */}
+     
     </>
    
   ) 
