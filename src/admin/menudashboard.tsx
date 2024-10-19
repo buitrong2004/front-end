@@ -41,7 +41,7 @@ const MenuDashboard = (props: Props) => {
               <svg className="bi">
                 <use xlinkHref="#people" />
               </svg>
-              <NavLink to={`/admin/seat`}>Ghế</NavLink>
+              <NavLink to={`/admin/category`}>Danh Mục Phim</NavLink>
             </a>
           </li>
           <li className="nav-item">

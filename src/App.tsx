@@ -14,13 +14,17 @@ import { IArea } from "./movie/area"
 import { AddArea } from "./service/area"
 import Area from "./admin/area/area"
 import UpdateArea from "./admin/area/updatearea"
-import Seat from "./admin/seat/seat"
 import CreateSeat from "./admin/seat/createseat"
 import SeatType from "./admin/seat_type/seat_type"
 import CreateSeatType from "./admin/seat_type/create_seat_type"
 import { ISeatType } from "./movie/seat_type"
 import { SeatsTypeAdd, SeatsTypeUpdate } from "./service/seat_type"
 import UpdateSeatType from "./admin/seat_type/updateseattype"
+import Category from "./admin/category movie/category"
+import AddMovieCategory from "./admin/category movie/addmoviecategory"
+import { ICategoryMovie } from "./movie/categorymovie"
+import { AddCategoryMovie, UpdateCategoryMovies } from "./service/categorymovie"
+import UpdateCategoryMovie from "./admin/category movie/updatecategorymovie"
 
 
 
@@ -30,6 +34,7 @@ function App() {
   const [rooms,setRooms] = useState<IRoom[]>([])
   const [areas,setAreas] = useState<IArea[]>([])
   const [settypes,setSetTypes] = useState<ISeatType[]>([])
+  const [categorymovies,setCategoryMovies] = useState<ICategoryMovie[]>([])
   const navigate= useNavigate()
 useEffect(()=>{
       (async()=>{
@@ -116,6 +121,32 @@ const seatTypeUpdate = async(seatTypeData:ISeatType,id:number|string)=>{
     
   }
 }
+const addCategoryMovie = async(categoryMovie:ICategoryMovie)=>{
+  try {
+    const movieType = await AddCategoryMovie(categoryMovie)
+    alert("Thêm danh mục thành công.")
+    setCategoryMovies([...categorymovies,movieType])
+    
+    navigate("/admin/category")
+
+    
+  } catch (error) {
+    console.log(error);
+    
+  }
+}
+const updateMoviesCategory = async(id:number|string,categoryMovie:ICategoryMovie)=>{
+  try {
+    const movieDta = await UpdateCategoryMovies(categoryMovie,id)
+    alert("Cập nhật thành công.")
+      const newamovies = categorymovies.map(categorymovie => (categorymovie.id == categorymovie)?categorymovie:movieDta)
+      setCategoryMovies(newamovies)
+      navigate('/admin/category')
+  } catch (error) {
+    console.log(error);
+    
+  }
+}
   return (
    
     <>
@@ -130,13 +161,15 @@ const seatTypeUpdate = async(seatTypeData:ISeatType,id:number|string)=>{
       <Route path="/admin/room/edit/:id" element={<UpdateRoom onUpdate={updateRoom}></UpdateRoom>}></Route>
       <Route path="/admin/area" element={<Area></Area>}></Route>
       <Route path="/admin/area/edit/:id" element={<UpdateArea updateArea={updateArea}></UpdateArea>}></Route>
-      <Route path="/admin/seat" element={<Seat></Seat>}></Route>
+      <Route path="/admin/category" element={<Category></Category>}></Route>
       <Route path="/admin/creatseat" element={<CreateSeat></CreateSeat>}></Route>
       <Route path="/admin/seat_type" element={<SeatType ></SeatType>}></Route>
       <Route path="/admin/create_type_seat" element={<CreateSeatType addSeatType={seatTypeAdd}></CreateSeatType>}></Route>
       <Route path="/admin/seat_type/edit/:id" element={<UpdateSeatType updateSeatType={seatTypeUpdate}></UpdateSeatType>}></Route>
+      <Route path="/admin/createmovie" element={<AddMovieCategory addCreateMovie={addCategoryMovie}></AddMovieCategory>}></Route>
+      <Route path="/admin/createmovie/edit/:id" element={<UpdateCategoryMovie updateCategoryMovies={updateMoviesCategory}></UpdateCategoryMovie>}></Route>
      </Routes>
-
+     
     </>
    
   ) 
