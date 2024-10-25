@@ -6,48 +6,45 @@ type Props = {}
 const Header = (props: Props) => {
   return (
     <div>
-        <header className="header">
-  <div className="container">
-    <div className="row">
-      <div className="col-lg-2">
-        <div className="header__logo">
-          <a href="./index.html">
-            <img src="/src/img/logo.png" />
-            <h3 className="header_title">Victory</h3>
-          </a>
-        </div>
-      </div>
-      <div className="col-lg-8">
-        <div className="header__nav">
-          <nav className="header__menu mobile-menu">
-          <ul>
-                <li className="active"><a href="./index.html">Trang Chủ</a></li>
-                <li><a href="./categories.html">Thể Loại</a>
-                  <ul className="dropdown">
-                    <li><a href="./categories.html">Phim khoa học viễn tưởng</a></li>
-                    <li><a href="./anime-details.html">Phim Chiến tranh </a></li>
-                    <li><a href="./anime-watching.html">Phim ca nhạc</a></li>
-                    <li><a href="./blog-details.html">Phim kinh dị</a></li>
-                    <li><a href="./signup.html">Phim hoạt hình</a></li>
-                    <li><a href="./login.html">Phim Tội phạm</a></li>
-                  </ul>
-                </li>
-                <li><a href="./blog.html"> Blog Của Chúng Tôi</a></li>
-                <li><Link to={`/admin/dashboard`}>Admin</Link></li>
-              </ul>
-          </nav>
-          
-        </div>
-      </div>
-      <div className="col-lg-2">
-        <div className="header__right">
-         0000
-        </div>
-      </div>
-    </div>
-    <div id="mobile-menu-wrap" />
+      <div className='headermenu bg-gray-900 '>
+                  <header className="flex items-center justify-between px-6 py-4 bg-gray-900 text-white">
+  {/* Left Side: Logo */}
+  <div className="flex items-center space-x-8">
+    {/* Logo */}
+    <img src="logo.png" alt="Logo" className="h-10" />
+    {/* Navigation Links */}
+    <nav className="flex space-x-6">
+      <a href="#" className="hover:text-red-500">Trang chủ</a>
+      <a href="#" className="hover:text-gray-300">Lịch chiếu</a>
+      <a href="#" className="hover:text-gray-300">Tin tức</a>
+      <a href="#" className="hover:text-gray-300">Khuyến mãi</a>
+      <a href="#" className="hover:text-gray-300">Giá vé</a>
+      <a href="#" className="hover:text-gray-300">Liên hoan phim</a>
+      <a href="#" className="hover:text-gray-300">Giới thiệu</a>
+    </nav>
+    <div className="space-x-4">
+    {/* Đăng ký Button */}
+    <button className="px-6 py-2 border-2 border-white text-white rounded-full hover:bg-white hover:text-gray-900 transition-all">
+      Đăng ký
+    </button>
+    {/* Đăng nhập Button */}
+    <button className="px-6 py-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition-all">
+      Đăng nhập
+    </button>
   </div>
+  </div>
+  {/* Right Side: Buttons */}
+ 
 </header>
+      </div>
+
+
+
+
+
+        
+
+
 
     </div>
   )
